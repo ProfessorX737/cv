@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Box } from "@mui/material";
+import styled from "styled-components";
+import Explorer from './Explorer';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Page>
+      <TopToolBar />
+      <Box display="flex" flex={1}>
+        <LeftToolBar />
+        <Explorer />
+      </Box>
+    </Page>
+  )
 }
 
-export default App;
+const Page = styled(Box)`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const LeftToolBar = styled(Box)`
+  background-color: #333333;
+  width: 3rem;
+  height: 100%;
+`;
+
+const TopToolBar = styled(Box)`
+  background-color: #323233;
+  width: 100%;
+  height: 1.5rem;
+`;
